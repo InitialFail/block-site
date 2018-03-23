@@ -36214,8 +36214,6 @@ bgPage.updateAllData().then(DB => {
             bgPage.control.setContextMenus();
         } else if (id == 'enable_blocked_words') {
             $('#blocked-words-list').css('display', !state ? 'block' : 'none');   
-        } else if (id == 'enable_blocked_words_spec') {
-            showHideBlockWord_spec();
         } else if (id == 'enable_active_times') {
             showHideActiveTimes();
         } else if (id === 'EnabledBlockSite') {
@@ -36665,14 +36663,6 @@ bgPage.updateAllData().then(DB => {
   }
 
     // WORD LIST SPEC
-
-    function showHideBlockWord_spec() {
-        if (getPref('enable_blocked_words_spec')) {
-            $('#block_word_obal_spec .showhide').show(0);
-        } else {
-            $('#block_word_obal_spec .showhide').hide(0);
-        }
-    }
 
     function addWordToStorage_spec() {
         var wordToBlock = $('#block_word_spec').val();
@@ -37352,7 +37342,6 @@ bgPage.updateAllData().then(DB => {
         renderAuthZone();
         renderBlockList();
         renderBlockListWord_spec();
-        showHideBlockWord_spec();
         showHideActiveTimes();
         document.querySelector('#blocked-words-list').append(blockedWordsList.render().el);
         document.querySelector('#password-set').append(passwordInput.render().el);
