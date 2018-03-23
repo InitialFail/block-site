@@ -328,24 +328,6 @@ input[type="text"]:disabled {
   height: auto;
 }
 
-.main>.row.protection h2{
-  text-align:center;
-  font-size: 19px;
-  text-align: center;
-  color: #3f414a;
-  font-weight: normal;
-}
-
-.main>.row.protection #passwd{
-  border:0px;
-  border-bottom:solid 2px #cfcfcf;
-  text-align:center;
-  height: 61px;
-  line-height: 61px;
-    display:block;
-    margin:-15px auto 26px auto;
-}
-
 .main>.row .block-padding p{
   color: #4d4f5b;
   font-size:15px;
@@ -376,17 +358,6 @@ input[type="text"]:disabled {
   position:absolute;
   margin-top: 46px;
   right: 14px;
-}
-
-.main>.row.protection{
-  text-align:center;
-}
-.main>.row.protection img{
-  margin: 25px 0px 40px 0px;
-}
-
-.main>.row.protection p{
-  color: #a9a9a9;
 }
 
 .main>.row .block-padding ol li{
@@ -518,36 +489,6 @@ input[type="text"]:disabled {
   background-color:red;
   font-weight: bold;
   z-index:9999999999;
-}
-
-
-#protection_popup{
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100000000;
-  background-color:rgba(0,0,0,0.7);
-}
-
-#protection_popup .in{
-  margin:50px auto 0 auto;
-  padding:20px;
-  width:740px;
-  position: relative;
-  background-color:#fff;
-  border-radius:5px;
-}
-
-#protection_popup .close{
-  position:absolute;
-  right:10px;
-  top:4px;
-  color:#000;
-  font-weight:bold;
-  cursor: pointer;
 }
 
 /* The switch - the box around the slider */
@@ -854,13 +795,6 @@ p.privacy-policy {
   font-size: 13px;
   border-radius: 5px;
   text-decoration: none !important;
-}
-
-.auth_zone {
-  display: flex !important;
-  margin: 13px 0;
-  justify-content: space-evenly;
-  width: 450px;
 }
 
 .content__paragraph {
@@ -1212,94 +1146,6 @@ p.privacy-policy {
 .checkbox-column_general {
   height: 250px;
   justify-content: space-around;
-}
-.pass-input {
-  display: flex !important;
-}
-.pass-input_bg {
-  width: 367px;
-    height: 109px;
-    align-items: center;
-    border-radius: 5px;
-    justify-content: space-evenly;
-    background-color: #f1f1f1;
-    box-sizing: border-box;
-    flex-direction: column;
-    padding: 0 20px;
-}
-
-.pass-input__controls {
-  display: flex;
-}
-
-.pass-input__title {
-  display: flex;
-  align-items: center;
-  font-family: Roboto;
-  font-size: 16px;
-  color: #373940;
-}
-
-.pass-input__field {
-  display: flex !important;
-  width: 194px !important;
-  height: 35px !important;
-  font-size: 13px !important;
-  border: 1px solid #909090 !important;
-  box-sizing: border-box !important;
-  align-items: center !important;
-  padding: 5px !important;
-  border-radius: 4px !important;
-}
-.pass-input__field:disabled  {
-  background-color: #fff !important;
-}
-.pass-input__field_error {
-  border: 1px solid #f16132 !important;
-}
-.pass-input__btn {
-    display: flex !important;
-    height: 35px !important;
-    padding: 0 20px !important;
-    font-size: 13px !important;
-    justify-content: center !important;
-    color: #fff !important;
-    background-color: #1ebc8e !important;
-    outline: none !important;
-    text-transform: uppercase !important;
-    border: 0 !important;
-    border-radius: 4px !important;
-    margin: 0 0 0 5px !important;
-    cursor: pointer !important;
-}
-.pass-input__btn:disabled {
-  background-color: #e0e0e0 !important;
-}
-.login {
-  display: none;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 20px;
-  height: 100%;
-}
-.login__title {
-  font-size: 25px;
-  font-weight: 500;
-  color: #373940;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 2;
-}
-.login__icon {
-  display: flex;
-  width: 31px;
-  height: 31px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url("../img/icon_lock_org.svg");
 }
 .general {
     height: 100%;

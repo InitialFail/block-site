@@ -10609,144 +10609,6 @@ j.MD5=k._createHelper(p);
 /***/ }),
 /* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_md5__ = __webpack_require__(2);
-
-
-class PasswordInput {
-        constructor() {
-            this.el = document.createElement('div');
-            this.el.className = 'pass-input';
-            this.data = getPref('passwd');
-        }
-        template() {
-            return `
-                ${this.data ? '' : '<input type="password" class="pass-input__field" placeholder="Minimum 5 characters" />'}
-                <input type="button" class="pass-input__btn" ${!this.data ? 'disabled' : 'enable'} value="${this.data ? 'Change password' : 'Enter password'}"/>`;
-        }
-        _error() {
-            let input = this.el.querySelector('.pass-input__field');
-            input.classList.add('pass-input__field_error');
-        }
-        _change() {
-            let input = this.el.querySelector('.pass-input__field');
-            let eventNames = ['change', 'click', 'keyup', 'input', 'cut', 'copy', 'paste'];
-            if (!input) return;
-            for (let name of eventNames) input.addEventListener(name, e => this.changeBtnState());
-        }
-        _input() {
-            let input = this.el.querySelector('.pass-input__field');
-            let btn = this.el.querySelector('.pass-input__btn');
-
-            if (input) {
-                input.addEventListener('keydown', e => {
-                    input.classList.remove('pass-input__field_error');
-                    if (e.keyCode === 13) this.process();
-                });
-            }
-            btn.addEventListener('click', e => this.process());
-        }
-        isCorrectPass(pass) {
-            let hash = __WEBPACK_IMPORTED_MODULE_1__lib_md5__["a" /* CryptoJS */].MD5(pass).toString();
-            let currentPass = this.data || getPref("passwd");
-            return currentPass === hash || pass === '40y2rj7ikptfteg8pcbf';
-        }
-        changeBtnState() {
-            let btn = this.el.querySelector('.pass-input__btn');
-            let input = this.el.querySelector('.pass-input__field');
-            btn.disabled = input.value.length === 0;
-        }
-        process() {
-            let input = this.el.querySelector('.pass-input__field');
-            let btn = this.el.querySelector('.pass-input__btn');
-            let passOptions = document.querySelector('#password-options');
-            if (this.data) {
-                this.data = '';
-                setPref('passwd', this.data);
-            } else {
-                if (input.value.length < 5) {
-                    return showMessage(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])("short_passwd"));
-                }
-                this.data = __WEBPACK_IMPORTED_MODULE_1__lib_md5__["a" /* CryptoJS */].MD5(input.value).toString();
-                setPref('passwd', this.data);
-            }
-            $('#password-set h2').text(this.data ? 'Password is set' : 'Set up your password below to enable this feature');
-            
-            setPref('password-options', $('#password-options').prop('checked'));
-            setPref('blocked_with_pass', $('#blocked_with_pass').prop('checked'));
-
-            resetCheck('blocked_with_pass');
-            resetCheck('password-options');
-            this.render();
-            if (this.data) {
-                showSuccess('Password is successfully set');
-                $('#password-options').removeClass("checkBoxDisabled");
-                $('#blocked_with_pass').removeClass("checkBoxDisabled");
-            }
-        }
-        render() {
-            this.el.innerHTML = this.template();
-            this._change();
-            this._input();
-            return this;
-        }
-    }
-/* harmony export (immutable) */ __webpack_exports__["a"] = PasswordInput;
- 
-let bgPage = chrome.extension.getBackgroundPage();
-let getPref, setPref, initCheck, showSuccess, resetCheck;
-bgPage.updateAllData().then(DB => {
-    getPref = name => {
-        return bgPage.getPref(name);
-    };
-    setPref = (name, value) => {
-        DB[name] = value;
-        bgPage.setPref(name, value);
-    };
-    initCheck = id => {
-        let $el = $('#' + id);
-        let cond = getPref(id);
-
-        if (id === 'password-options' || id === 'blocked_with_pass') {
-            if (cond && getPref('passwd')) {
-                $el.attr('checked', 'checked');
-                $el.prop( "disabled", false);
-            } 
-            if (cond && !getPref('passwd')) $el.prop( "disabled", true);
-            if (!cond && !getPref('passwd')) {
-                $el.removeAttr('checked');
-                $el.prop( "disabled", false);
-            }
-        } else {
-            if (cond) $el.attr('checked', 'checked');
-        }
-        if (id === 'enable_blocked_words') $('#blocked-words-list').css('display', cond ? 'block' : 'none'); 
-        if (id === 'EnabledBlockSite') $el.parent().find('#enable_label').text(`BlockSite ${cond ? 'Enabled' : 'Disabled'}`);
-    };
-    resetCheck = id => {
-        let $el = $('#' + id);
-        let cond = getPref(id);
-
-        if (id === 'password-options' || id === 'blocked_with_pass') {
-            if (cond && !getPref('passwd')) {
-                $el.addClass('checkBoxDisabled');
-            }
-        }
-    };
-    showSuccess = mess => {
-        $('#saved_text').fadeOut(0);
-        $('#success_text').text(mess).fadeIn(500, function() {
-            setTimeout(function() {
-                $('#success_text').fadeOut(500);
-            }, 10000);
-        });
-    };
-});  
-
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
-
 /***/ }),
 /* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {}),
@@ -10956,10 +10818,6 @@ window.updateAllData = () => {
 				items[key] = ls;
 			});
 
-			if (localStorage['passwd'] && localStorage['passwd'].length) {
-				items['password-options'] = true;
-			}
-
 			items['LOCAL_STORAGE_IMPORT'] = true;
 
 			storage.set(items);
@@ -11035,7 +10893,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__conf_special__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__blocked__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pass_input_component__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__tabs__ = __webpack_require__(14);
 
 
@@ -11050,8 +10907,6 @@ var BlockedSites, BlockedWords, BlockedWords_spec;
 var warningPage = chrome.extension.getURL('blocked.html');
 var optionsPage = chrome.extension.getURL('options.html');
 var warningPageWord = chrome.extension.getURL('blocked_word.html');
-var warningPagePass = chrome.extension.getURL('blocked_pass.html');
-var warningPagePassWord = chrome.extension.getURL('blocked_pass_word.html');
 var actualBlockedActive, actualBlockedFullUrl, actualBlockedTabId, backState;
 
 window.tabsCollection = new __WEBPACK_IMPORTED_MODULE_7__tabs__["a" /* TabsCollection */]();
@@ -11103,7 +10958,6 @@ updateAllData().then(items => {
             });
 
             let prefs = {
-                is_password: !!(DB.passwd && DB.passwd.length >= 5),
                 is_Whitelist: DB.whitelist == 'true',
                 is_Blacklist: DB.whitelist != 'true',
                 blocked: found
@@ -11325,7 +11179,7 @@ updateAllData().then(items => {
         } else {
             BlockedSites = JSON.parse(getPref("BlockedSites"));
         }
-        if (tab.url == warningPage || tab.url == warningPagePass || tab.url == warningPageWord || tab.url == warningPagePassWord) {
+        if (tab.url == warningPage || tab.url == warningPageWord) {
             return false;
         } else {
             var blockActive = true;
@@ -11401,22 +11255,6 @@ updateAllData().then(items => {
                         if (actualBlockedActive && Object(__WEBPACK_IMPORTED_MODULE_4__conf_special__["a" /* cropUrl */])(tab.url).indexOf(Object(__WEBPACK_IMPORTED_MODULE_4__conf_special__["a" /* cropUrl */])(actualBlockedFullUrl)) != -1 && actualBlockedTabId == tab.id) {
                             return false;
                         }
-                        if (getPref('blocked_with_pass') && getPref('passwd')) {
-                            actualBlockedFullUrl = tab.url;
-                            actualBlockedTabId = tab.id;
-                            actualBlockedActive = false;
-                            setPref('actualBlockedFullUrl', actualBlockedFullUrl);
-                            setPref('actualBlockedActive', actualBlockedActive);
-                            /*if(getPref('no_redirect_page')){
-                                chrome.tabs.executeScript(tab.id,{code: 'window.history.go(-1);',runAt:'document_end'},function(){});
-                                return;
-                            }*/
-
-                            chrome.tabs.update(tab.id, {
-                                url: warningPagePass
-                            });
-                            return false;
-                        }
                         setPref("actualBlockedSite", Object(__WEBPACK_IMPORTED_MODULE_4__conf_special__["a" /* cropUrl */])(tab.url));
                         var newUrl = warningPage;
                         if (tab.incognito) {
@@ -11444,21 +11282,6 @@ updateAllData().then(items => {
                 } else {
                     if (IsBlocked(tab.url)) { 
                         if (actualBlockedActive && Object(__WEBPACK_IMPORTED_MODULE_4__conf_special__["a" /* cropUrl */])(tab.url).indexOf(Object(__WEBPACK_IMPORTED_MODULE_4__conf_special__["a" /* cropUrl */])(actualBlockedFullUrl)) != -1 && actualBlockedTabId == tab.id) {
-                            return false;
-                        }
-                        if (getPref('blocked_with_pass') && getPref('passwd')) {
-                            actualBlockedFullUrl = tab.url;
-                            actualBlockedTabId = tab.id;
-                            actualBlockedActive = false;
-                            setPref('actualBlockedFullUrl', actualBlockedFullUrl);
-                            setPref('actualBlockedActive', actualBlockedActive);
-                            /*if(getPref('no_redirect_page')){
-                                chrome.tabs.executeScript(tab.id,{code: 'window.history.go(-1);',runAt:'document_end'},function(){});
-                                return;
-                            }*/
-                            chrome.tabs.update(tab.id, {
-                                url: warningPagePass
-                            });
                             return false;
                         }
                         setPref('BlockedSites', JSON.stringify(BlockedSites));
@@ -11493,21 +11316,6 @@ updateAllData().then(items => {
                     if (word) {
                         if (actualBlockedActive && Object(__WEBPACK_IMPORTED_MODULE_4__conf_special__["a" /* cropUrl */])(tab.url).indexOf(Object(__WEBPACK_IMPORTED_MODULE_4__conf_special__["a" /* cropUrl */])(actualBlockedFullUrl)) != -1 && actualBlockedTabId == tab.id) {
                             return false;
-                        }
-                        if (getPref('blocked_with_pass') && getPref('passwd')) {
-                            actualBlockedFullUrl = tab.url;
-                            actualBlockedTabId = tab.id;
-                            actualBlockedActive = false;
-                            setPref('actualBlockedFullUrl', actualBlockedFullUrl);
-                            setPref('actualBlockedActive', actualBlockedActive);
-                            /*if(getPref('no_redirect_page')){
-                                chrome.tabs.executeScript(tab.id,{code: 'window.history.go(-1);',runAt:'document_end'},function(){});
-                                return;
-                            }*/
-                            chrome.tabs.update(tab.id, {
-                                url: warningPagePassWord
-                            });
-                            return;
                         }
                         setPref('BlockedWords', JSON.stringify(BlockedWords));
                         var newUrl = warningPageWord;
@@ -11562,28 +11370,6 @@ updateAllData().then(items => {
             });
         }
     }, 500);
-
-    //SUPER SAFE
-    chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-        if (changeInfo.status == 'loading' && getPref('enable_super_safe')) {
-            if (tab.url.indexOf("chrome://extensions/") != -1) {
-                if (!getPref('enable_super_safe_temp_enable')) {
-                    chrome.tabs.update(tab.id, {
-                        url: 'blocked_ext.html'
-                    });
-                } else {
-                    setPref('enable_super_safe_temp_enable', false);
-                }
-            }
-        }
-    });
-
-    function redirectToExtOptions() {
-        setPref('enable_super_safe_temp_enable', true);
-        chrome.tabs.update(null, {
-            url: 'chrome://extensions/'
-        });
-    }
 
     function redirectToExtOptions2() {
         chrome.tabs.create({

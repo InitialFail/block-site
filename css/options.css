@@ -255,10 +255,6 @@ td {
     color: red;
     display:none
 }
-.password_set_label{
-    color:red;
-    display:none;
-}
 .options td:first-child{
     padding-right: 90px;
 }
@@ -432,65 +428,6 @@ p{
 
 #top_share img{
   margin:0 0 -6px 0;
-}
-
-#premium_zone{
-  position: relative;
-}
-
-#premium_zone .inactive_block{
-  display: block;
-  position: absolute;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  text-align: center;
-  background-color:rgba(245,245,245,0.8);
-}
-
-#premium_zone.active .inactive_block{
-  display: none;
-}
-
-#premium_zone .inactive_block strong{
-  display: block;
-  padding:50px 0 20px 0;
-  font-size:50px;
-  color:#F00000;
-}
-
-#premium_zone .inactive_block a{
-  font-size:30px;
-}
-
-#protection_popup{
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100000000;
-  background-color:rgba(0,0,0,0.7);
-}
-
-#protection_popup .in{
-  margin:50px auto 0 auto;
-  padding:20px;
-  width:740px;
-  position: relative;
-  background-color:#fff;
-  border-radius:5px;
-}
-
-#protection_popup .close{
-  position:absolute;
-  right:10px;
-  top:4px;
-  color:#000;
-  font-weight:bold;
-  cursor: pointer;
 }
 
 .toggle-button, .toggle-button-red{
