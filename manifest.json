@@ -19,7 +19,6 @@
         "webNavigation",
         "<all_urls>",
         "cookies",
-        "management",
         "notifications",
         "contextMenus",
         "webRequest",

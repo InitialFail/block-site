@@ -11048,13 +11048,9 @@ var optionsPage = chrome.extension.getURL('options.html');
 var warningPageWord = chrome.extension.getURL('blocked_word.html');
 var warningPagePass = chrome.extension.getURL('blocked_pass.html');
 var warningPagePassWord = chrome.extension.getURL('blocked_pass_word.html');
-var actualBlockedActive, actualBlockedFullUrl, actualBlockedTabId, extVersion, extName, backState;
+var actualBlockedActive, actualBlockedFullUrl, actualBlockedTabId, backState;
 
 window.tabsCollection = new __WEBPACK_IMPORTED_MODULE_7__tabs__["a" /* TabsCollection */]();
-chrome.management.getSelf(function(ChromeSelf) {
-    extVersion = ChromeSelf.version;
-    extName = ChromeSelf.name;
-});
 
 updateAllData().then(items => {
     window.wips = {
