@@ -37202,47 +37202,6 @@ bgPage.updateAllData().then(DB => {
         }
     }
 
-    function initPopup() {
-        $('#protection_popup').fadeIn(300);
-        if (getPref('passwd')) {
-            $('#protection_popup .is_pass_text, #protection_popup .activate_ready').removeClass('none');
-        } else {
-            $('#protection_popup .no_pass_text, #protection_popup .set_new_password').removeClass('none');
-        }
-        $('#protection_popup .set_new_password_ok').click(function() {
-            var pass1 = $('#protection_popup .password1').val();
-            var pass2 = $('#protection_popup .password2').val();
-            if (login && pass1) {
-                if (pass1 == pass2) {
-                    if (pass1.length > 4) {
-                        var hash = __WEBPACK_IMPORTED_MODULE_2__lib_md5__["a" /* CryptoJS */].MD5(pass1).toString();
-                        setPref('passwd', hash);
-                        $('#protection_popup .no_pass_text, #protection_popup .set_new_password').addClass('none');
-                        $('#protection_popup .activate_ready').removeClass('none');
-                        $('#password_is_set').css('display', 'block');
-                    } else {
-                        alert(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('pass_err_1'));
-                    }
-                } else {
-                    alert(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('pass_err_2'));
-                }
-            } else {
-                alert(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('pass_err_3'));
-            }
-        });
-        $('#protection_popup .activate_now').click(function() {
-            setPref('enable_super_safe', true);
-            $('#enable_super_safe_activate').hide(0);
-            $('#enable_super_safe_deactivate').show(0);
-            $('#protection_popup .activate_ready').addClass('none');
-            $('#protection_popup .activate_final').removeClass('none');
-        });
-        $('#protection_popup .activate_later').click(function() {
-            $('#protection_popup .activate_ready').addClass('none');
-            $('#protection_popup .activate_final').removeClass('none');
-        });
-    }
-
     // INIT
 
     function init() {
@@ -37331,10 +37290,6 @@ bgPage.updateAllData().then(DB => {
         //NEW AUTH
         $('#remove_password').click(function() {
             setPref('passwd', '');
-            $('#enable_super_safe_deactivate').hide(0);
-            $('#enable_super_safe_activate').show(0);
-            $('.enable_super_safe_alert_noset').removeClass('none');
-            setPref('enable_super_safe', false);
             $('#remove_password').css('display', 'none');
             saveSettings();
         });
@@ -37365,74 +37320,6 @@ bgPage.updateAllData().then(DB => {
             $('#leftpanel li[rel=blok_general]').trigger('click');
         });
 
-        //PREMIUM
-        if (bgPage.control.isPremium) {
-            $('#premium_zone').addClass('active');
-            if (getPref('enable_super_safe')) {
-                $('#top_enable_premium').attr('checked', 'checked');
-            }
-            if (getPref('enable_super_safe')) {
-                $('#enable_super_safe_deactivate').show(0);
-            } else {
-                $('#enable_super_safe_activate').show(0);
-                $('.enable_super_safe_alert_noset').removeClass('none');
-            }
-            $('#enable_super_safe_activate').click(function() {
-                if (!getPref('passwd')) {
-                    alert(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('pass_err_4'));
-                    return;
-                }
-                setPref('enable_super_safe', true);
-                $('#enable_super_safe_deactivate').show(0);
-                $('#enable_super_safe_activate').hide(0);
-                $('.enable_super_safe_alert_noset').addClass('none');
-            });
-            $('#enable_super_safe_deactivate').click(function() {
-                setPref('enable_super_safe', false);
-                $('.enable_super_safe_alert_noset').removeClass('none');
-                $('#enable_super_safe_deactivate').hide(0);
-                $('#enable_super_safe_activate').show(0);
-                $('.enable_super_safe_alert_noset').removeClass('none');
-            });
-        } else {
-            $('#premium_zone').removeClass('active');
-        }
-        if (location.href.indexOf('#protection') != -1) {
-            var rel = 'blok_password';
-            $('#leftpanel ul li').removeClass('active');
-            $('#leftpanel ul li[rel=' + rel + ']').addClass('active');
-            $('.main>.row').addClass('none');
-            $('#' + rel).removeClass('none');
-            $('#premium_zone').css('background-color', '#EAFFE3');
-            initPopup();
-        }
-        $('#top_enable_premium').change(function() {
-            if (bgPage.control.isPremium) {
-                if (getPref('enable_super_safe')) {
-                    setPref('enable_super_safe', false);
-                    $('#top_enable_premium').removeAttr('checked');
-                } else {
-                    if (!getPref('passwd')) {
-                        alert(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('pass_err_4'));
-                        $('#top_enable_premium').removeAttr('checked');
-                        $('#leftpanel li[rel=blok_password]').trigger('click');
-                        return;
-                    }
-                    setPref('enable_super_safe', true);
-                    $('#top_enable_premium').attr('checked', 'checked');
-                }
-                saveSettings();
-            } else {
-                window.open('premium.html', '_blank');
-                window.close();
-            }
-        });
-
-        $('.ga_click_premium').click(function() {
-            window.open('premium.html', '_blank');
-            window.close();
-        });
-
         Object(__WEBPACK_IMPORTED_MODULE_7__custom__["a" /* initNiceChecks */])();
 
     }
@@ -37445,25 +37332,7 @@ bgPage.updateAllData().then(DB => {
     window.addEventListener("load", function() {
         initCheck('EnabledBlockSite');
 
-        console.log('Yanik', getPref('password-options'), getPref('passwd'));
-
-        if (getPref('password-options') && getPref('passwd')) {
-            $('#EnabledBlockSite').css('pointer-events', 'none');
-            $('.login').css('display', 'flex');
-            $('[i18n],[i18]').each(function() {
-                var id = $(this).attr('i18n') || $(this).attr('i18');
-                var text = chrome.i18n.getMessage(id);
-                $(this).val(text);
-                $(this).html(text);
-            });
-            let passwordOptions = new PasswordOptionsInput();
-            console.log('Bobonbo', passwordOptions);
-            document.querySelector('#login').append(passwordOptions.render().el);
-        } else {
-            console.log('Def faq');
-            $('.login').css('display', 'none');
-            init();
-        }
+        init();
 
     }, false);
 });

@@ -11070,9 +11070,6 @@ updateAllData().then(items => {
         getPref: function(name) {
            return window.getPref(name);
         },
-        firstStart: function() {
-            setPref('check_newtab_premium', (new Date().getTime()).toString());
-        },
         setPref: function(name, value) {
             return window.setPref(name, value);
         },
@@ -11120,19 +11117,11 @@ updateAllData().then(items => {
     wips.init();
 
     window.control = {
-        isPremium: false,
         init: function() {
             if (typeof DB.enable_context_menu === 'undefined') setPref('enable_context_menu', true);
-            /*setTimeout(function(){
-                control.updateNotify();
-            },600000);*/
             setTimeout(function() {
                 control.setContextMenus();
             }, 3000);
-            /*setTimeout(function(){
-                control.newtabPremium();
-            },20000);*/
-            this.checkPremium();
             if (!DB.active_days_0) {
                 setPref('active_days_0', true);
                 setPref('active_days_1', true);
@@ -11165,61 +11154,6 @@ updateAllData().then(items => {
             }
             //control.initWallet();
         },
-        /*initWallet: function(){
-            var r = new XMLHttpRequest();
-            var url = 'http://plugins.wips.com/j-w-t?user_id=block_site_premium&offer_code=blocksite1';
-            r.open("GET", url, true);
-            r.onreadystatechange = function(e){    
-                if(r.readyState == 4 && r.status == 200){
-                    console.log(r.responseText);
-                    control.checkWallet(r.responseText);
-                }
-            };
-            r.send(null);
-        },
-        checkWallet: function(key){
-            //IN-APP
-            google.payments.inapp.getSkuDetails({
-                parameters: {env: 'prod'},
-                //sku: 'block_site_premium',
-                success: function(e) {console.log("success");console.log(e);},
-                failure: function(e) {console.log("failure");console.log(e);}
-            });
-        },*/
-        checkPremium: function() {
-            var login = getPref('premium_login');
-            var password = getPref('premium_password');
-            if (login && password) {
-                var url = 'https://plugins.wips.com/blocksite-premium/pay/check?username=' + encodeURIComponent(login) + '&password=' + encodeURIComponent(password);
-                var r = new XMLHttpRequest();
-                r.open("GET", url, true);
-                r.onreadystatechange = function() {
-                    if (r.readyState == 4) {
-                        if (r.status == 202) {
-                            control.isPremium = true;
-                            setPref('check_newtab_premium_disable', true);
-                        } else if (r.status == 404 || r.status == 401 || r.status == 403) {
-                            setPref('premium_login', false);
-                            setPref('premium_password', false);
-                        }
-                    }
-                };
-                r.send(null);
-            }
-        },
-        /*newtabPremium: function(){
-            var last_check = parseInt(getPref('check_newtab_premium'));
-            if(!control.isPremium && !getPref('check_newtab_premium_disable') && (!last_check || last_check < (new Date().getTime() - 86400000))){
-                window.open('premium.html','_blank');
-                setPref('check_newtab_premium_disable',true);
-                setPref('check_newtab_premium2', (new Date().getTime()).toString());
-            }
-            var last_check2 = parseInt(getPref('check_newtab_premium2'));
-            if(!control.isPremium && !getPref('check_newtab_premium_disable2') && (last_check2 && last_check2 < (new Date().getTime() - 604800000))){
-                window.open('premium.html','_blank');
-                setPref('check_newtab_premium_disable2',true);
-            }
-        },*/
         setContextMenus: function() {
             chrome.contextMenus.removeAll();
 
@@ -11244,32 +11178,6 @@ updateAllData().then(items => {
                 }
             });
         },
-            /*,
-                updateNotify: function(){
-                    if(!getPref('update_notify_first_set')){
-                        setPref('update_notify_first_set',true);
-                        setPref('update_notify_active',true);
-                    }
-                    if(getPref('update_notify_active')){
-                        if(getPref('update_notify_id')!='3'){
-                            setPref('update_notify_id','3');
-                            chrome.notifications.create(
-                                'update_notify',{
-                                    type: 'image', 
-                                    iconUrl: 'img/icon128.png', 
-                                    title: translate('notify_title'), 
-                                    message: translate('notify_mess'),
-                                    imageUrl: 'img/update_notify_2.png',
-                                    buttons: [
-                                        { title: translate('notify_share_fb'), iconUrl: 'img/fb_share_16.png'},
-                                        { title: translate('notify_share_twt'), iconUrl: 'img/twt_share_16.png'},
-                                    ],
-                                    priority: 1
-                                },function(){} 
-                            );
-                        }
-                    }
-                }*/
     };
 
 
