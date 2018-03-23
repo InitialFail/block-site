@@ -76,7 +76,7 @@ class BlockedPage {
     }
     goBack() {
         let history;
-        chrome.tabs.query({ active : true }, (tab) => {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tab) => {
             for (let i = 0; i < tab.length; i++) {
                 history = bgPage.tabsCollection.getTab(tab[i].id) || {};
                 if (history.urls) {

@@ -10644,16 +10644,9 @@ function cropUrl(url) {
 }
 
 function isURL(url,redirect) {
-    //url
-    var RegExp = /[-a-zA-Z0-9@:%_\+.~#?&//=]{1,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-    //ip
-    var RegExp2 = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-    
-    if(RegExp.test(url) || RegExp2.test(url) || (redirect && (url=='about:blank' || url=='chrome://newtab'))) { 
-        return true; 
-    } else { 
-        return false; 
-    } 
+    let anchor = document.createElement('a');
+    anchor.href = url;
+    return (anchor.host && anchor.host != window.location.host) || (redirect && url == 'about:blank')
 }
 
 function escapeRegExp(str) {

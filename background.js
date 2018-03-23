@@ -10644,16 +10644,9 @@ function cropUrl(url) {
 }
 
 function isURL(url,redirect) {
-    //url
-    var RegExp = /[-a-zA-Z0-9@:%_\+.~#?&//=]{1,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-    //ip
-    var RegExp2 = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-    
-    if(RegExp.test(url) || RegExp2.test(url) || (redirect && (url=='about:blank' || url=='chrome://newtab'))) { 
-        return true; 
-    } else { 
-        return false; 
-    } 
+    let anchor = document.createElement('a');
+    anchor.href = url;
+    return (anchor.host && anchor.host != window.location.host) || (redirect && url == 'about:blank')
 }
 
 function escapeRegExp(str) {
@@ -10690,7 +10683,7 @@ class BlockedPage {
     }
     goBack() {
         let history;
-        chrome.tabs.query({ active : true }, (tab) => {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tab) => {
             for (let i = 0; i < tab.length; i++) {
                 history = bgPage.tabsCollection.getTab(tab[i].id) || {};
                 if (history.urls) {
@@ -11348,10 +11341,13 @@ updateAllData().then(items => {
     }
 
     function getModifyRedirectUrl(url) {
-        if (url == 'about:blank' || url == 'chrome://newtab' || url.indexOf('http://') != -1 || url.indexOf('https://') != -1 || url.indexOf('file:///') != -1) {
+        let anchor = document.createElement('a');
+        a.href = url;
+        if (anchor.protocol && anchor.toString().startsWith(anchor.protocol)) {
             return url;
         } else {
-            return 'http://' + url;
+            anchor.protocol = 'http:';
+            return anchor.toString();
         }
     }
 
@@ -11361,7 +11357,7 @@ updateAllData().then(items => {
 
     window.setInterval(function() {
         if (getPref("EnabledBlockSite")) {
-            chrome.tabs.query({ active : true }, function(tab) {
+            chrome.tabs.query({ active: true, currentWindow: true }, function(tab) {
                 for (var i = 0; i < tab.length; i++) {
                     if (tab[i].url.indexOf("http://") != -1 || tab[i].url.indexOf("https://") != -1) {
                         checkPage(tab[i]);
