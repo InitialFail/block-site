@@ -2,7 +2,6 @@
     "background": {
         "page": "background.html"
     },
-    "content_security_policy": "script-src 'self'  https://*.facebook.com  https://*.google.com  https://ssl.google-analytics.com https://*.wips.com https://*.facebook.net https://*.twitter.com https://*.doubleclick.net; object-src 'self'",
     "default_locale": "en",
     "description": "Stay focused and improve productivity. Easily block any distracting or harmful website. Stop procrastination once and for all!",
     "icons": {
