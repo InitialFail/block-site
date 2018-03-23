@@ -1,0 +1,70 @@
+html,body{
+    background-color: #3f414b;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
+.sidebar{
+    margin-left: 81px;
+    margin-top: 269px;
+    float:left;
+}
+
+.sidebar img{
+    margin-bottom: 24px;
+}
+.sidebar p{
+    display:block;
+    margin-bottom: 124px;
+    width: 343px;
+    height: 66px;
+    line-height: 33px;
+    font-family: RobotoMono;
+    font-size: 25px;
+    text-align: left;
+    color: #ffffff;
+    font-family: 'Roboto Mono', sans-serif;
+}
+
+.browser{
+    margin-top: 93px;
+    margin-left: 31px;
+    position:absolute;
+}
+
+.btn-aqua{
+    height: 46px;
+    line-height: 46px;
+    min-height: 46px;
+    background-color: #2bb2a7;
+    color: #fff;
+    padding: 0px 48px;
+}
+
+.btn-aqua:hover{
+    color: #fff;
+}
+
+.btn-aqua::before{
+  content: '';
+  display:block;
+  position:absolute;
+  width: 46px;
+  height: 46px;
+  margin-left: -63px;
+  margin-top:-1px;
+  transform: skew(-30deg);
+  background-color: #2bb2a7;
+}
+.btn-aqua::after{
+  content: '';
+  display:block;
+  position:absolute;
+  width: 46px;
+  height: 46px;
+  margin-left: 173px;
+  margin-top:-47px;
+  transform: skew(-30deg);
+  background-color: #2bb2a7;
+}

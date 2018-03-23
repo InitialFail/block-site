@@ -1,0 +1,37 @@
+{
+    "background": {
+        "page": "background.html"
+    },
+    "content_security_policy": "script-src 'self'  https://*.facebook.com  https://*.google.com  https://ssl.google-analytics.com https://*.wips.com https://*.facebook.net https://*.twitter.com https://*.doubleclick.net; object-src 'self'",
+    "default_locale": "en",
+    "description": "Stay focused and improve productivity. Easily block any distracting or harmful website. Stop procrastination once and for all!",
+    "icons": {
+        "128": "img/icon128.png",
+        "16": "img/icon16.png",
+        "19": "img/icon19.png",
+        "32": "img/icon32.png",
+        "48": "img/icon48.png"
+    },
+    "manifest_version": 2,
+    "name": "Block Site - Website Blocker for Chrome\u2122",
+    "options_page": "options.html",
+    "permissions": [
+        "tabs",
+        "webNavigation",
+        "<all_urls>",
+        "cookies",
+        "management",
+        "notifications",
+        "contextMenus",
+        "webRequest",
+        "webRequestBlocking",
+        "unlimitedStorage",
+        "storage"
+    ],
+    "short_name": "Block Site",
+    "update_url": "https://clients2.google.com/service/update2/crx",
+    "version": "3.2.2",
+    "web_accessible_resources": [
+        "blocked.html"
+    ]
+}

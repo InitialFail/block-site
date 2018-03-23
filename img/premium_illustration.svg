@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="593" height="587" viewBox="0 0 593 587">
+    <defs>
+        <circle id="b" cx="12" cy="218" r="12"/>
+        <filter id="a" width="158.3%" height="158.3%" x="-29.2%" y="-20.8%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.125028306 0"/>
+        </filter>
+        <circle id="d" cx="319" cy="87" r="12"/>
+        <filter id="c" width="158.3%" height="158.3%" x="-29.2%" y="-20.8%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.125028306 0"/>
+        </filter>
+        <circle id="f" cx="382" cy="569" r="12"/>
+        <filter id="e" width="158.3%" height="158.3%" x="-29.2%" y="-20.8%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.125028306 0"/>
+        </filter>
+        <circle id="h" cx="60" cy="476" r="12"/>
+        <filter id="g" width="158.3%" height="158.3%" x="-29.2%" y="-20.8%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.125028306 0"/>
+        </filter>
+        <circle id="j" cx="498" cy="294" r="12"/>
+        <filter id="i" width="158.3%" height="158.3%" x="-29.2%" y="-20.8%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.125028306 0"/>
+        </filter>
+        <linearGradient id="m" x1="10.677%" x2="86.06%" y1="26.634%" y2="94.006%">
+            <stop offset="0%" stop-color="#FF7373"/>
+            <stop offset="100%" stop-color="#C0681F"/>
+        </linearGradient>
+        <path id="l" d="M286.405 65.539c.168 1.625 17 161.093-140.829 220.62L143.5 287l-2.076-.84C-16.406 226.631.427 67.163.594 65.538l.506-4.092 3.927-1.009c91.848-24.046 129.776-55.155 133.76-58.63 2.75-2.41 6.677-2.41 9.426 0 4.04 3.475 41.912 34.584 133.76 58.63l3.927 1.009.505 4.092z"/>
+        <filter id="k" width="113.6%" height="115.3%" x="-6.8%" y="-5.7%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius="11" result="shadowSpreadOuter1"/>
+            <feOffset dy="8" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1.5"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.322548687 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(4)">
+        <circle cx="296.5" cy="292.5" r="292" stroke="#DFDFDF" opacity=".6"/>
+        <circle cx="293.5" cy="291.5" r="207" stroke="#DFDFDF"/>
+        <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+        <use fill="#59ACA5" xlink:href="#b"/>
+        <circle cx="12" cy="218" r="10.5" stroke="#FFF" stroke-width="3"/>
+        <use fill="#000" filter="url(#c)" xlink:href="#d"/>
+        <use fill="#CD7653" xlink:href="#d"/>
+        <circle cx="319" cy="87" r="10.5" stroke="#FFF" stroke-width="3"/>
+        <g>
+            <use fill="#000" filter="url(#e)" xlink:href="#f"/>
+            <use fill="#FE6FCD" xlink:href="#f"/>
+            <circle cx="382" cy="569" r="10.5" stroke="#FFF" stroke-width="3"/>
+        </g>
+        <g>
+            <use fill="#000" filter="url(#g)" xlink:href="#h"/>
+            <use fill="#FE6F80" xlink:href="#h"/>
+            <circle cx="60" cy="476" r="10.5" stroke="#FFF" stroke-width="3"/>
+        </g>
+        <g>
+            <use fill="#000" filter="url(#i)" xlink:href="#j"/>
+            <use fill="#6FD1FE" xlink:href="#j"/>
+            <circle cx="498" cy="294" r="10.5" stroke="#FFF" stroke-width="3"/>
+        </g>
+        <g>
+            <g fill-rule="nonzero" transform="translate(144 150)">
+                <use fill="#000" filter="url(#k)" xlink:href="#l"/>
+                <use fill="url(#m)" fill-rule="evenodd" xlink:href="#l"/>
+                <path stroke="#FFF" stroke-width="11" d="M147.58 291.282l-4.08 1.652-4.08-1.652C82.876 269.94 44.139 234.664 20.587 189.42 8.275 165.77.728 140.54-2.957 114.91-5.491 97.29-5.942 81.63-5.192 69.058c.112-1.888.218-3.136.316-4.086l.012-.107.964-7.812 3.631-.933 3.903-1.003c40.118-10.503 72.803-23.06 98.674-36.583 9.35-4.886 17.232-9.609 23.718-14.026 4.272-2.91 7.362-5.289 9.135-6.836 4.824-4.23 11.854-4.23 16.639-.034 1.918 1.65 4.937 3.97 9.196 6.869 6.498 4.423 14.376 9.143 23.717 14.028 25.87 13.525 58.54 26.08 98.628 36.576l7.559 1.942.964 7.812.012.107c.098.95.204 2.198.316 4.086.75 12.572.299 28.234-2.235 45.853-3.685 25.63-11.232 50.86-23.543 74.51-23.552 45.243-62.289 80.519-118.835 101.86z"/>
+            </g>
+            <path fill="#FFF" d="M287.5 309.943L256.907 326l5.843-34.01L238 267.905l34.204-4.962L287.5 232l15.296 30.943L337 267.905l-24.75 24.085 5.843 34.01z"/>
+        </g>
+    </g>
+</svg>

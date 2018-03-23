@@ -1,0 +1,696 @@
+{
+  "appDesc": {
+    "message": "Bloquear sitios web que no quieren visitar otra vez!"
+  },
+  "appName": {
+    "message": "Bloquear Sitio"
+  },
+  "locale": {
+    "message": "es"
+  },
+  "remove": {
+    "message": "Eliminar"
+  },
+  "close_button": {
+    "message": "Cerca"
+  },
+  "stats": {
+    "message": "Permitir el envío de estadísticas anónimas?"
+  },
+  "title": {
+    "message": "Blocksite.co extensión"
+  },
+  "short_passwd": {
+    "message": "La contraseña debe ser larga personaje al menos 5!"
+  },
+  "add_page": {
+    "message": "Añadir página"
+  },
+  "blacklist": {
+    "message": "Lista negra"
+  },
+  "whitelist": {
+    "message": "Lista Blanca"
+  },
+  "whitelist_title": {
+    "message": "Lista de sitios permitidos"
+  },
+  "blacklist_title": {
+    "message": "Lista de los sitios bloqueados"
+  },
+  "auth_label": {
+    "message": "Habilitar la autenticación"
+  },
+  "passwd_label": {
+    "message": "Nueva contraseña"
+  },
+  "auth_title": {
+    "message": "Autenticación"
+  },
+  "func_title": {
+    "message": "Ajustes"
+  },
+  "enable_label": {
+    "message": "Bloque de activación del sitio"
+  },
+  "type_site_to_block":{
+    "message":"Tipo de sitio"
+  },
+  "warning_label": {
+    "message": "Habilitar página de advertencia"
+  },
+  "login_label": {
+    "message": "Ingrese su contraseña:"
+  },
+  "login_button": {
+    "message": "Login"
+  },
+  "wrongpasswd": {
+    "message": "Contraseña incorrecta!"
+  },
+  "wrong_url": {
+    "message": "URL incorrecta!"
+  },
+  "set_password": {
+    "message": "Fijar contraseña"
+  },
+  "menu_options": {
+    "message": "Opciones"
+  },
+  "menu_enable": {
+    "message": "Bloque de activación del sitio"
+  },
+  "menu_disable": {
+    "message": "Desactivar Bloquear Sitio"
+  },
+  "social_show": {
+    "message": "Cuota"
+  },
+  "social_hide": {
+    "message": "Cerca"
+  },
+  "do_you_like": {
+    "message": "¿Le gusta esta extensión?"
+  },
+  "share_it": {
+    "message": "Share it!"
+  },
+  "saved_text": {
+    "message": "La configuración se ha guardado"
+  },
+  "save_button": {
+    "message": "Guardar"
+  },
+  "page_exist": {
+    "message": "Página ya está en la lista!"
+  },
+  "password_set_label": {
+    "message": "Contraseña se ha establecido con éxito."
+  },
+  "password_removed_label":{
+    "message":"CONTRASEÑA REMOVIDA"
+  },
+  "blocked_text1": {
+    "message": "La"
+  },
+  "blocked_text2": {
+    "message": "está bloqueada por BlockSite"
+  },
+  "only_allowed": {
+    "message": "Los sitios sólo permitidos son:"
+  },
+  "blocked_first_time": {
+    "message": "primera vez."
+  },
+  "blocked_text1_1": {
+    "message": "Muy bien, así que lo he probado"
+  },
+  "blocked_text1_2": {
+    "message": "Pero no lo intente de nuevo."
+  },
+  "blocked_text2_1": {
+    "message": "Usted ya ha intentado"
+  },
+  "blocked_text2_2": {
+    "message": "Sé que vas a intentar esto. Pero por favor, parar ahora."
+  },
+  "blocked_text3_1": {
+    "message": ""
+  },
+  "blocked_text3_2": {
+    "message": "¡Vamos! Dejar de hacer esto."
+  },
+  "blocked_text4_1": {
+    "message": ""
+  },
+  "blocked_text4_2": {
+    "message": "¿En serio? Usted debe estar haciendo otra cosa."
+  },
+  "blocked_text5_1": {
+    "message": ""
+  },
+  "blocked_text5_2": {
+    "message": "Te lo ruego. Deja de tratar."
+  },
+  "blocked_text6_1": {
+    "message": ""
+  },
+  "blocked_text6_2": {
+    "message": "Odio tener que decirte esto, pero este sitio sigue bloqueada."
+  },
+  "blocked_text7_1": {
+    "message": ""
+  },
+  "blocked_text7_2": {
+    "message": "Te lo dije antes, se bloquea."
+  },
+  "blocked_text8_1": {
+    "message": ""
+  },
+  "blocked_text8_2": {
+    "message": "Es usted la esperanza de que con el tiempo se puede desbloquear?"
+  },
+  "blocked_text9_1": {
+    "message": ""
+  },
+  "blocked_text9_2": {
+    "message": "Uno más y que llegará a dos dígitos. Éste es en verdad la pérdida de tiempo."
+  },
+  "blocked_text10_1": {
+    "message": ""
+  },
+  "blocked_text10_2": {
+    "message": "¿Qué? 10 veces? No estoy hablando con usted. Intente compartir esta extensión"
+  },
+  "blocked_text11_1": {
+    "message": ""
+  },
+  "blocked_text11_2": {
+    "message": "¡No! No estoy hablando con usted."
+  },
+  "blocked_text12_1": {
+    "message": ""
+  },
+  "blocked_text12_2": {
+    "message": "Ya te dije que no estoy hablando con usted."
+  },
+  "blocked_text16_1": {
+    "message": ""
+  },
+  "blocked_text16_2": {
+    "message": "Muy bien, usted está comenzando a hacer que me enfade."
+  },
+  "blocked_text20_1": {
+    "message": ""
+  },
+  "blocked_text20_2": {
+    "message": "Knock Knock! ¿Quién está ahí?"
+  },
+  "blocked_text22_1": {
+    "message": ""
+  },
+  "blocked_text22_2": {
+    "message": "No te voy a contar esta broma, porque lo sigues intentando."
+  },
+  "blocked_text25_1": {
+    "message": ""
+  },
+  "blocked_text25_2": {
+    "message": "Te ves muy bien, pero eso no va a ayudar a conseguir en este sitio web"
+  },
+  "blocked_text30_1": {
+    "message": ""
+  },
+  "blocked_text30_2": {
+    "message": "¿Qué tal en lugar de intentar tratar de compartir esta extensión a tus amigos."
+  },
+  "blocked_text35_1": {
+    "message": ""
+  },
+  "blocked_text35_2": {
+    "message": "Voy a dejar de cambiar mis citas en el número de 36"
+  },
+  "blocked_text36_1": {
+    "message": ""
+  },
+  "blocked_text36_2": {
+    "message": "El último mensaje. Ya he terminado. Por favor, dejar de tratar ahora."
+  },
+  "blocked_text40_1": {
+    "message": ""
+  },
+  "blocked_text40_2": {
+    "message": "En serio, esto es lo último que voy a decir. Deja de tratar de llegar a este sitio, está bloqueado por BlockSite"
+  },
+  "blocked_text100_1": {
+    "message": ""
+  },
+  "blocked_text100_2": {
+    "message": "Muy bien, ya que lo hizo tan lejos, que se merece una recompensa. Te daré un eco cuando voy a averiguarlo."
+  },
+  "blocked_text150_1": {
+    "message": ""
+  },
+  "blocked_text150_2": {
+    "message": "Aún no hay recompensa para usted para seguir intentándolo. No hay ninguna garantía de que obtendrá una recompensa"
+  },
+  "blocked_text200_1": {
+    "message": ""
+  },
+  "blocked_text200_2": {
+    "message": "Bien aquí está tu recompensa. La broma: ¿Qué hacen las vacas para el entretenimiento? Alquilan Moovies!"
+  },
+  "blocked_text250_1": {
+    "message": ""
+  },
+  "blocked_text250_2": {
+    "message": "Bien usted tiene alguna resistencia. Pero parar ahora, te harás daño a ti mismo."
+  },
+  "blocked_text300_2": {
+    "message": "De acuerdo, ya que están llenos de enery, voy a decir algunas bromas."
+  },
+  "blocked_text320_2": {
+    "message": "Usted sabe que estoy triste, que está perdiendo el tiempo aquí?"
+  },
+  "blocked_text340_2": {
+    "message": "Pero al menos te puedes divertir si te cuento algunas bromas."
+  },
+  "blocked_text360_2": {
+    "message": "No se olvide de decirles a sus amigos, estoy seguro de que les encantaría escucharlas."
+  },
+  "blocked_text380_2": {
+    "message": "¿Cómo llamas a una oveja sin piernas? Una nube"
+  },
+  "blocked_text400_2": {
+    "message": "Bueno correcta?"
+  },
+  "blocked_text420_2": {
+    "message": "¿Qué hace un pez decir cuando se topa con una pared? MALDITO!"
+  },
+  "blocked_text440_2": {
+    "message": "Que más me gusta"
+  },
+  "blocked_text460_2": {
+    "message": "¿Cómo llamas a un pez sin ojos? FSH!"
+  },
+  "blocked_text480_2": {
+    "message": "¿Qué es invisable y olores como las zanahorias? Pedos Conejo."
+  },
+  "blocked_text500_2": {
+    "message": "¿Por qué gerillas tienen grandes nostralls? Coz consiguieron grandes dedos!!! ¡¡¡¡¡¡"
+  },
+  "blocked_text520_2": {
+    "message": "Ewwwwwww"
+  },
+  "blocked_text540_2": {
+    "message": "Un mago estaba conduciendo por el camino .. entonces se convirtió en un camino de entrada ..."
+  },
+  "blocked_text560_2": {
+    "message": "Dos muñecos de nieve están de pie en un campo. Uno le dice al otro: Divertido, huelo zanahorias también."
+  },
+  "context_enable": {
+    "message": "Bloque de activación del sitio"
+  },
+  "context_disable": {
+    "message": "Desactivar Bloquear Sitio"
+  },
+  "context_add_current": {
+    "message": "Agregar sitio actual a la lista negra"
+  },
+  "context_make_uninst": {
+    "message": "Hacer BlockSite desinstalable"
+  },
+  "context_5star": {
+    "message": "Dar al sitio de bloque 5-estrellas en tienda web"
+  },
+  "context_share": {
+    "message": "Cuota"
+  },
+  "context_share_fb": {
+    "message": "Compartir en Facebook"
+  },
+  "context_share_twt": {
+    "message": "Tweet acerca de ello"
+  },
+  "context_block_link": {
+    "message": "Bloquear este enlace"
+  },
+  "notify_title": {
+    "message": "Cómo Proteger la Vida"
+  },
+  "notify_mess": {
+    "message": "¿Están sus hijos seguros en línea? Haga clic aquí para obtener la Vida Proteja para ellos."
+  },
+  "notify_share_fb": {
+    "message": "Facebook Compartir"
+  },
+  "notify_share_twt": {
+    "message": "Tweet"
+  },
+  "opt_menu_1": {
+    "message": "Sitios bloqueados"
+  },
+  "opt_menu_2": {
+    "message": "Proteccion"
+  },
+  "opt_menu_3": {
+    "message": "Control adulto"
+  },
+  "opt_menu_4": {
+    "message": "Ajustes"
+  },
+  "opt_menu_5": {
+    "message": "Acerca de"
+  },
+  "Block_Site_Options": {
+    "message": "Opciones del bloque del Sitio"
+  },
+  "Uninstall_protection": {
+    "message": "Desinstalar protección"
+  },
+  "leftmenu_5star": {
+    "message": "Dar al sitio de bloque <br /> 5 estrellas en tienda web"
+  },
+  "leftmenu_share_text": {
+    "message": "Hey, ¿puedes ayudarnos a mostrar BlockSite al mundo? Compártelo:"
+  },
+  "How_activate_Incognito": {
+    "message": "Cómo activar Bloquear Sitio en modo Incognito"
+  },
+  "Export_Import": {
+    "message": "Exportación / Importación"
+  },
+  "Export_CSV": {
+    "message": "Exportar lista a archivo CSV:"
+  },
+  "Export": {
+    "message": "Exportación"
+  },
+  "Import_CSV": {
+    "message": "Importar lista de CSV:"
+  },
+  "Import": {
+    "message": "Importación"
+  },
+  "List_blocked_word": {
+    "message": "Lista de palabras bloqueado"
+  },
+  "What_is_it": {
+    "message": "¿Qué es?"
+  },
+  "Whenever_the_blocked": {
+    "message": "Cada vez que la palabra aparece bloqueado en algún lugar de la URL, se bloqueará automáticamente. Se puede utilizar por ejemplo para bloquear las consultas de búsqueda específicas en los motores de búsqueda como Google o Bing. Ten cuidado con lo que usted pone en allí. Si por ejemplo una letra para bloquear la mayoría de los sitios web serán bloqueados, así que elige sabiamente."
+  },
+  "Custom_list": {
+    "message": "Lista personalizada"
+  },
+  "word_err1": {
+    "message": "Palabra ya existe!"
+  },
+  "word_err2": {
+    "message": "Palabra vacía!"
+  },
+  "word_err3": {
+    "message": "Url incorrecto!"
+  },
+  "Adult_related": {
+    "message": "Relacionada adultos"
+  },
+  "Add_word": {
+    "message": "Añadir palabra"
+  },
+  "Active_days_times": {
+    "message": "Activo días y horarios"
+  },
+  "Active_days": {
+    "message": "Días activos"
+  },
+  "Sunday": {
+    "message": "Domingo"
+  },
+  "Monday": {
+    "message": "Lunes"
+  },
+  "Tuesday": {
+    "message": "Martes"
+  },
+  "Wednesday": {
+    "message": "Miércoles"
+  },
+  "Thursday": {
+    "message": "Jueves"
+  },
+  "Friday": {
+    "message": "Viernes"
+  },
+  "Saturday": {
+    "message": "Sábado"
+  },
+  "Time_intervals": {
+    "message": "Los intervalos de tiempo"
+  },
+  "Add_time_interval": {
+    "message": "Añadir intervalo de tiempo"
+  },
+  "Password_protect_h2": {
+    "message": "La contraseña protege opciones"
+  },
+  "Password_protect_text1": {
+    "message": "<p> <strong> ¿Cómo funciona? </ strong> </ p> En este momento usted puede establecer una contraseña sólo para proteger las opciones, pero es muy fácil de desinstalar la extensión. Si desea asegurarse de que nadie podrá acceder a los sitios Web a los que decide bloquear. Esto es muy útil para el control parental. Haga clic en \"Get the funcionalidad premium\" y siga los pasos </ p> Establezca la contraseña aquí:. </ P>"
+  },
+  "Password_is_set": {
+    "message": "Password se ha establecido"
+  },
+  "Remove_Password": {
+    "message": "Retire Contraseña"
+  },
+  "Uninstall_Protection": {
+    "message": "Protección de desinstalación"
+  },
+  "Password_protect_text2": {
+    "message": "PROTEGER TEXTO"
+  },
+  "Password_protect_text3": {
+    "message": "Activar la protección de desinstalación"
+  },
+  "Password_protect_text4": {
+    "message": "Desactivar la protección de desinstalación"
+  },
+  "Password_protect_text5": {
+    "message": "NOTA: Es necesario configurar la contraseña primero"
+  },
+  "Password_protect_text6": {
+    "message": "<p class=\"enable_super_safe_alert_noset none\" style=\"color:#E40000\"> Eres un usuario Premium, pero no ha activado la funcionalidad. . Marque la casilla de verificación para activarla </ p> <strong> IMPORTANTE: escriba la contraseña en algún lugar para que Wona ˘ Â € Â ™ t olvides. Porque si lo haces, no hay manera de cómo recuperar o cambiar y tendrá que volver a instalar Chrome. </ Strong> </ p> Si usted necesita ayuda con cualquier cosa, háganoslo saber en nuestro <a href = \"http://www.blocksite.co/support/block-site-extension\" target = \"_blank\" class = \"ga_support_page\"> página de soporte </ a>. </ p>"
+  },
+  "Password_protect_text7": {
+    "message": "Hazte premium"
+  },
+  "ebable_whitelist":{"message":"Habilitar lista blanca"},
+  "options_other_text1": {
+    "message": "Mostrar \"Desactivar Bloquear Sitio\" en el menú de contexto?"
+  },
+  "options_other_text2": {
+    "message": "Permitir notificaciones de nuevas características?"
+  },
+  "protection_popup_text1": {
+    "message": "¡Gracias! Usted es ahora el usuario Premium BlockSite."
+  },
+  "protection_popup_text2": {
+    "message": "Puedo ver que usted ya tiene la contraseña de opciones para la protección de desinstalación será el mismo."
+  },
+  "protection_popup_text3": {
+    "message": "Tiene que establecer la contraseña ahora."
+  },
+  "protection_popup_text4": {
+    "message": "Nueva contraseña:"
+  },
+  "protection_popup_text5": {
+    "message": "Confirme Contraseña:"
+  },
+  "protection_popup_text6": {
+    "message": "Establecer contraseña"
+  },
+  "protection_popup_text7": {
+    "message": "Ahora está listo para activar la protección de desinstalación"
+  },
+  "protection_popup_text8": {
+    "message": "Activar ahora"
+  },
+  "protection_popup_text9": {
+    "message": "Voy a activarlo más tarde"
+  },
+  "protection_popup_text10": {
+    "message": "Usted necesidad de permitir esta extensión en modo incógnito, así que será completamente insuperable. Simplemente marque la casilla \"Permitir a incógnito\""
+  },
+  "protection_popup_text11": {
+    "message": "Aceptar lo haré"
+  },
+  "Other": {
+    "message": "Otro"
+  },
+  "Redirect_to": {
+    "message": "Redireccionar a"
+  },
+  "URL": {
+    "message": "URL"
+  },
+  "Set": {
+    "message": "Conjunto"
+  },
+  "Unset": {
+    "message": "Desarmado"
+  },
+  "redirect_page": {
+    "message": "Página redirigida"
+  },
+  "Really_remove": {
+    "message": "Realmente eliminar?"
+  },
+  "Default_redirect_page": {
+    "message": "Página de redirección predeterminado"
+  },
+  "Redirect_page": {
+    "message": "Página redirigida:"
+  },
+  "Are_you_sure_block_phrase": {
+    "message": "¿Seguro de que deseas bloquear a esta frase? Si pones a una frase general que podría bloquear una gran cantidad de sitios web."
+  },
+  "Incognito_mode_redirect": {
+    "message": "Modo de redirección Incognito"
+  },
+  "Default": {
+    "message": "Por defecto:"
+  },
+  "Incorrect_file": {
+    "message": "Archivo son incorrectos!"
+  },
+  "Really_remove_actual_list": {
+    "message": "Realmente eliminar la lista actual y lista de importación de archivo?"
+  },
+  "pass_err_1": {
+    "message": "Las contraseñas deben tener un mínimo de 5 caracteres!"
+  },
+  "pass_err_2": {
+    "message": "Las contraseñas no son las mismas!"
+  },
+  "pass_err_3": {
+    "message": "Por favor rellene todos los campos!"
+  },
+  "pass_err_4": {
+    "message": "La contraseña debe ajustarse"
+  },
+  "prem_err1": {
+    "message": "A la espera de pago / aprobación del pago"
+  },
+  "prem_err2": {
+    "message": "Esta cuenta ya está registrado y la contraseña es incorrecta. Elija diferente cuenta o corregir la contraseña."
+  },
+  "prem_err3": {
+    "message": "A la espera de pago / aprobación del pago"
+  },
+  "prem_err4": {
+    "message": "La cuenta fue cancelada, por favor póngase en contacto con soporte"
+  },
+  "prem_err5": {
+    "message": "Inicio de sesión y las contraseñas deben tener un mínimo de 5 caracteres!"
+  },
+  "prem_err6": {
+    "message": "Las contraseñas no son las mismas!"
+  },
+  "prem_err7": {
+    "message": "Por favor rellene todos los campos!"
+  },
+  "prem_text1": {
+    "message": "BlockSite tiene ahora la funcionalidad prima para usted"
+  },
+  "prem_text2": {
+    "message": "Bloque del sitio - Protección de desinstalación"
+  },
+  "prem_text3": {
+    "message": "Hacer la extensión BlockSite insuperable"
+  },
+  "prem_text4": {
+    "message": "Que sea instalable"
+  },
+  "prem_text5": {
+    "message": "Detener la dilación"
+  },
+  "prem_text6": {
+    "message": "No hay manera alrededor de ella"
+  },
+  "prem_text7": {
+    "message": "Control Parental"
+  },
+  "prem_text8": {
+    "message": "= - Oferta por tiempo limitado"
+  },
+  "prem_text9": {
+    "message": "Garantía de 60 días de devolución de dinero! Sin hacer preguntas."
+  },
+  "prem_text10": {
+    "message": "Rellene el siguiente formulario para delimitar su extensión con la funcionalidad prima o para acceder a su cuenta si ya tienes una."
+  },
+  "prem_text11": {
+    "message": "Excelente para el control de la crianza. Nadie va a tener acceso a los sitios Web a los que decide bloquear y todas las opciones serán insuperables. También es útil para los problemas business y la dilación."
+  },
+  "prem_text12": {
+    "message": "Muéstrame más tarde"
+  },
+  "prem_text13": {
+    "message": "Yo no lo quiero"
+  },
+  "button_become": {
+    "message": "Conviértete premium"
+  },
+  "prem_placeholder1": {
+    "message": "Login"
+  },
+  "prem_placeholder2": {
+    "message": "Contraseña"
+  },
+  "prem_placeholder3": {
+    "message": "Confirmar Contraseña"
+  },
+  "specpage_text1": {
+    "message": "Bloque Protección del Sitio"
+  },
+  "specpage_text2": {
+    "message": "Has optar por bloquear la lista de las extensiones con el fin de evitar la dilación o para controlar los sitios web que visita."
+  },
+  "specpage_text3": {
+    "message": "Puede acceder a la lista de extensiones mediante la introducción de la contraseña:"
+  },
+  "specpage_text4": {
+    "message": "Login"
+  },
+  "specpage_text5": {
+    "message": "O usted puede ir a las opciones de"
+  },
+  "specpage_text6": {
+    "message": "(Se necesitará la contraseña)"
+  },
+  "white_list_help": {
+    "message": "Si activa la lista blanca, sólo será capaz de ir a las páginas que tienen en las páginas bloqueadas. Tenga en cuenta, que esta funcionalidad no anula palabras bloqueadas."
+  },
+  "block_only_standalone": {
+    "message": "Bloquear sólo las palabras independientes"
+  },
+  "Globally": {
+    "message": "A nivel mundial"
+  },
+  "Domains": {
+    "message": "Dominios"
+  },
+  "add_new_domain_time": {
+    "message": "Añadir nuevos días de dominio / horas"
+  },
+  "domain_time_list": {
+    "message": "Lista de días / horas de dominio"
+  },
+  "Add_domain_time": {
+    "message": "Añadir dominio día / horas"
+  },
+  "Add_new_domains_here": {
+    "message": "Añadir nuevos dominios aquí"
+  }
+}
