@@ -16,13 +16,8 @@
     "options_page": "options.html",
     "permissions": [
         "tabs",
-        "webNavigation",
         "<all_urls>",
-        "cookies",
-        "notifications",
         "contextMenus",
-        "webRequest",
-        "webRequestBlocking",
         "unlimitedStorage",
         "storage"
     ],
