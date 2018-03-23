@@ -101,7 +101,7 @@ class BlockedPage {
                     } 
                 }
                 chrome.tabs.update(tab[i].id, {
-                    url: 'http://www.google.com/'
+                    url: 'chrome://newtab'
                 });  
             }
         });

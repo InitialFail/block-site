@@ -10337,14 +10337,10 @@ const config = {
     "extension_id": "35",
     "project_id": "283",
     "config_id": "626f1d33-308e-a876-e56f-5fbbff704d70",
-    "api_url": "https://api.wips.com/",
-    "uninstall_url": "https://blocksite.co/uninstall",
     "webstoreId": "eiimnmioipafcokbfikbljfdeojpcgbh",
     "tweetText": "Stop #procrastination now!",
     "browsingOn": false,
     "browsingLimitUrl": false,
-    "gaCode": "UA-109305899-2",
-    "gaCid": [Math.random(), Math.random(), Math.random()].join('-'),
     "default_locale": "en"
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = config;
@@ -10671,7 +10667,6 @@ class PasswordInput {
                 setPref('passwd', this.data);
             } else {
                 if (input.value.length < 5) {
-                    trackButton('Protection', 'Password Set Up', 'set-error');
                     return showMessage(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])("short_passwd"));
                 }
                 this.data = __WEBPACK_IMPORTED_MODULE_1__lib_md5__["a" /* CryptoJS */].MD5(input.value).toString();
@@ -10749,67 +10744,6 @@ bgPage.updateAllData().then(DB => {
         });
     };
 });  
-
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
-
-/***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {/* harmony export (immutable) */ __webpack_exports__["b"] = trackButton;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config__ = __webpack_require__(1);
-
-let bgPage = chrome.extension.getBackgroundPage();
-
-const ga = {
-	url : 'https://www.google-analytics.com/collect',
-	googleAnalyticsTID : __WEBPACK_IMPORTED_MODULE_0__config__["a" /* config */].gaCode || '',
-	googleAnalyticsCID : bgPage.DB.gaCid || __WEBPACK_IMPORTED_MODULE_0__config__["a" /* config */].gaCid,
-	sendGoogleAnalyticsPageView(documentPage) {
-		let this_ = this;
-		let options = {
-			v : 1,
-			tid : this_.googleAnalyticsTID,
-			cid : this_.googleAnalyticsCID,
-			t : 'pageview',
-			dp : documentPage
-		}
-		$.post(this_.url, options);
-	},
-	send(event, category, action, label, value) {
-		let this_ = this;
-		var options = {
-			v : 1,
-			tid : this_.googleAnalyticsTID,
-			cid : this_.googleAnalyticsCID,
-			t : 'event',
-			ec : category,
-			ea : action || label,
-			el : label, 
-			ev : value
-		};
-		options.el ? '' : delete options.el;
-		options.ev ? '' : delete options.ev;
-		$.post(this_.url, options);
-   }
-};
-
-function trackButton(param1, param2, param3, param4) {
-	__WEBPACK_IMPORTED_MODULE_0__config__["a" /* config */].gaCode ? ga.send('_trackEvent', param1, param2, param3, param4) : '';
-};
-
-const KeenIO = {
-	version : 1,
-	url : 'https://api.keen.io/3.0/projects/5a01b24dc9e77c0001ee57cc/events/@EVENT:@VERSION?api_key=BFE07C37B2DD632B80F25FFA743BDED949A5ACEBF41D1A02E0EDAD677FD727C4F6E7BBD36664FFED2DE21A34FCA250BA541B1736B56A534528003C4CAB113AB50FD2D460492BD62F81C9BBAD6437C42ED41C11F8E67A7D9D675607CAB8E6561C&data=@DATA&r=@RAND',
-	recordEvent(event, data) {
-		data = JSON.stringify(data).replace(/\./g, '_');
-		let img = document.createElement('img');
-		img.src = this.url.replace('@EVENT', event).replace('@VERSION', this.version).replace('@DATA', btoa(data)).replace('@RAND', Math.random());
-		img = null;
-	}
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = KeenIO;
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
@@ -10907,7 +10841,7 @@ class BlockedPage {
                     } 
                 }
                 chrome.tabs.update(tab[i].id, {
-                    url: 'http://www.google.com/'
+                    url: 'chrome://newtab'
                 });  
             }
         });
@@ -11035,102 +10969,6 @@ window.updateAllData = () => {
 };
 
 /***/ }),
-/* 13 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-class Retension {
-  constructor(conf) {
-    this.Storage = conf.Storage;
-    this.GAEvents = conf.GAEvents;
-    this.lastRetentionDay = 28;
-    this.minHoursFromInstall = 8;
-
-    this.Storage.requestGet().then(data => {
-      this.data = this.initialize(data);
-
-      this.report();
-    });
-  }
-
-  initialize(data) {
-    if (data && data.installDate && data.sentDays) {
-      return data;
-    } else {
-      data = data || {};
-      data.installDate = data.installDate ? data.installDate : (() => {
-        this.GAEvents.Install();
-
-        return Date.now();
-      })();
-      data.sentDays = data.sentDays || {};
-
-      this.Storage.requestSet(data);
-
-      return data;
-    }
-  }
-
-  report() {
-    if (!this.data.completed) {
-      this.reportRetentoin();
-    }
-
-    this.reportAlive();
-
-    setTimeout(this.report.bind(this), 1000 * 60 * 60);
-  }
-
-  reportRetentoin() {
-    let now = new Date();
-    let installDate = new Date(this.data.installDate);
-    let installStart = this.getDateStart(installDate);
-    let todayStart = this.getDateStart(now);
-    let msStartDiff = Math.abs(todayStart - installStart);
-    let hoursFromTrueInstall = Math.floor((now - installDate) / (1000 * 60 * 60)); 
-    let daysDiff = Math.floor(msStartDiff / (1000 * 60 * 60 * 24));
-
-    if (daysDiff > 0 && daysDiff <= this.lastRetentionDay) {
-      if (!this.data.sentDays[daysDiff] && hoursFromTrueInstall > this.minHoursFromInstall) {
-        this.GAEvents.Retentoin(daysDiff);
-        
-        this.data.sentDays[daysDiff] = true;
-        this.Storage.requestSet(this.data);
-      }
-
-    } else if (daysDiff > this.lastRetentionDay) {
-      this.data.completed = true;
-
-      this.Storage.requestSet(this.data);
-    }
-  }
-
-  reportAlive() {
-    let now = new Date();
-    let lastAliveTime = this.data.lastAliveTime;
-    let todayStart = this.getDateStart(now).getTime();
-
-    if (!lastAliveTime || lastAliveTime * 1 < todayStart) {
-      this.GAEvents.Alive();
-
-      this.data.lastAliveTime = now.getTime();
-      this.Storage.requestSet(this.data);
-    }
-  }
-
-  getDateStart(date) {
-    return new Date(
-      date.getFullYear(), 
-      date.getMonth(), 
-      (date.getHours() >= 0 && date.getHours() < 5) ? date.getDate() - 1 : date.getDate(), 
-      5, 0, 1
-    ); //day starts at 5PM
-  }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = Retension;
-
-
-/***/ }),
 /* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11173,8 +11011,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__background_js_storage_wrapper__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__background_js_config__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__background_js_conf_special__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__background_js_ga__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__background_js_retension__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__background_js_tabs__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__background_js_background__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__background_js_blocksiteadult__ = __webpack_require__(18);
@@ -11193,10 +11029,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__retension__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage_wrapper__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ga__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__conf_special__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__blocked__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pass_input_component__ = __webpack_require__(3);
@@ -11222,28 +11056,6 @@ window.tabsCollection = new __WEBPACK_IMPORTED_MODULE_7__tabs__["a" /* TabsColle
 chrome.management.getSelf(function(ChromeSelf) {
     extVersion = ChromeSelf.version;
     extName = ChromeSelf.name;
-});
-let retension = new __WEBPACK_IMPORTED_MODULE_0__retension__["a" /* Retension */]({
-    Storage: {
-        requestGet: function() {
-            return __WEBPACK_IMPORTED_MODULE_1__storage_wrapper__["a" /* storage */].get('retensionData').then(obj => obj.retensionData);
-        },
-
-        requestSet: function(data) {
-            __WEBPACK_IMPORTED_MODULE_1__storage_wrapper__["a" /* storage */].set({retensionData: data});
-        }
-    },
-    GAEvents: {
-        Retentoin: function(xDay) {
-            Object(__WEBPACK_IMPORTED_MODULE_3__ga__["b" /* trackButton */])('General', 'Retained {0} day'.replace('{0}', xDay), extVersion);
-        },
-        Alive: function() {
-            Object(__WEBPACK_IMPORTED_MODULE_3__ga__["b" /* trackButton */])('General', 'Retained Alive', extVersion);
-        },
-        Install: function() {
-            Object(__WEBPACK_IMPORTED_MODULE_3__ga__["b" /* trackButton */])('General', 'Retained Install', extVersion);
-        }
-    }
 });
 
 updateAllData().then(items => {
@@ -11273,9 +11085,7 @@ updateAllData().then(items => {
         },
         init: function() {
             if (!this.getPref('extension_id')) {
-                this.setPref('stats', true);
                 this.setPref('extension_id', __WEBPACK_IMPORTED_MODULE_2__config__["a" /* config */].extension_id);
-                !this.getPref('gaCid') ? this.setPref('gaCid', __WEBPACK_IMPORTED_MODULE_2__config__["a" /* config */].gaCid) : '';
             }
         }
     };
@@ -11601,10 +11411,6 @@ updateAllData().then(items => {
             return;
         }
 
-        if (!getPref("stats")) {
-            return;
-        }
-
         if (getPref("BlockedSites") == undefined) {
             BlockedSites = [];
         } else {
@@ -11711,7 +11517,7 @@ updateAllData().then(items => {
                         if (incognito_redirect) {
                             newUrl = getModifyRedirectUrl(incognito_redirect);
                         }else{
-                            newUrl = 'http://www.google.com/';
+                            newUrl = 'chrome://newtab';
                         }
                     }
                     var redUrl = getRedirectPage(tab.url);
@@ -11849,7 +11655,7 @@ updateAllData().then(items => {
                             if (incognito_redirect) {
                                 newUrl = getModifyRedirectUrl(incognito_redirect);
                             }else{
-                                newUrl = 'http://www.google.com/';
+                                newUrl = 'chrome://newtab';
                             }
                         }
                         var wlRed = getPref('whitelist_redirect');
@@ -11893,7 +11699,7 @@ updateAllData().then(items => {
                             if (incognito_redirect) {
                                 newUrl = getModifyRedirectUrl(incognito_redirect);
                             }else{
-                                newUrl = 'http://www.google.com/';
+                                newUrl = 'chrome://newtab';
                             }
                         }
                         var redUrl = getRedirectPage(tab.url);
@@ -11941,7 +11747,7 @@ updateAllData().then(items => {
                             if (incognito_redirect) {
                                 newUrl = getModifyRedirectUrl(incognito_redirect);
                             }else{
-                                newUrl = 'http://www.google.com/';
+                                newUrl = 'chrome://newtab';
                             }
                         }
                         var word_redirect = word.redirect;
@@ -12016,43 +11822,11 @@ updateAllData().then(items => {
         });
     }
 
-    // desknotify univ listeners
-    function desktopNotifyCliked(id, index) {
-        if (id == 'update_notify' && index != undefined) {
-            /*var shareUrl = 'http://www.wips.com/showcase';
-            if(config.webstoreId && config.webstoreId.trim() != ''){//nahrane
-                shareUrl = 'https://chrome.google.com/webstore/detail/' + config.webstoreId;
-            }
-            var tweetText = encodeURIComponent(config.tweetText) + '%20' + encodeURIComponent(shareUrl);
-            if(index == 0){
-                window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(shareUrl),'_blank');
-            }else if(index == 1){
-                window.open('http://twitter.com/home?status=' + tweetText,'_blank');
-            }*/
-            var tweetText = encodeURIComponent('Get Life Protect for your kids and employees') + '%20' + encodeURIComponent('http://bit.ly/LifeProtect');
-            if (index == 0) {
-                window.open('http://www.facebook.com/sharer.php?u=' + encodeURIComponent('http://bit.ly/GetLifeProtect'), '_blank');
-            } else if (index == 1) {
-                window.open('http://twitter.com/home?status=' + tweetText, '_blank');
-            }
-        } else if (id == 'update_notify') {
-            window.open('https://www.getlifeprotect.com?utm_campaign=launch&utm_medium=update-notif&utm_source=block-site', '_blank');
-        }
-    }
-    chrome.notifications.onClicked.addListener(function(id) {
-        desktopNotifyCliked(id);
-    });
-    chrome.notifications.onButtonClicked.addListener(function(id, index) {
-        desktopNotifyCliked(id, index);
-    });
     /*chrome.browserAction.onClicked.addListener(function(tab) {
         chrome.tabs.create({
             url: optionsPage
         });
     });*/
-    chrome.runtime.setUninstallURL(__WEBPACK_IMPORTED_MODULE_2__config__["a" /* config */].uninstall_url, function() {
-        //do nothing
-    });
 
     //tab manager
     chrome.tabs.onCreated.addListener(function(tab) {

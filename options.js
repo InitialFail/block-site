@@ -10337,14 +10337,10 @@ const config = {
     "extension_id": "35",
     "project_id": "283",
     "config_id": "626f1d33-308e-a876-e56f-5fbbff704d70",
-    "api_url": "https://api.wips.com/",
-    "uninstall_url": "https://blocksite.co/uninstall",
     "webstoreId": "eiimnmioipafcokbfikbljfdeojpcgbh",
     "tweetText": "Stop #procrastination now!",
     "browsingOn": false,
     "browsingLimitUrl": false,
-    "gaCode": "UA-109305899-2",
-    "gaCid": [Math.random(), Math.random(), Math.random()].join('-'),
     "default_locale": "en"
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = config;
@@ -10671,7 +10667,6 @@ class PasswordInput {
                 setPref('passwd', this.data);
             } else {
                 if (input.value.length < 5) {
-                    trackButton('Protection', 'Password Set Up', 'set-error');
                     return showMessage(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])("short_passwd"));
                 }
                 this.data = __WEBPACK_IMPORTED_MODULE_1__lib_md5__["a" /* CryptoJS */].MD5(input.value).toString();
@@ -10749,67 +10744,6 @@ bgPage.updateAllData().then(DB => {
         });
     };
 });  
-
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
-
-/***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {/* harmony export (immutable) */ __webpack_exports__["b"] = trackButton;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config__ = __webpack_require__(1);
-
-let bgPage = chrome.extension.getBackgroundPage();
-
-const ga = {
-	url : 'https://www.google-analytics.com/collect',
-	googleAnalyticsTID : __WEBPACK_IMPORTED_MODULE_0__config__["a" /* config */].gaCode || '',
-	googleAnalyticsCID : bgPage.DB.gaCid || __WEBPACK_IMPORTED_MODULE_0__config__["a" /* config */].gaCid,
-	sendGoogleAnalyticsPageView(documentPage) {
-		let this_ = this;
-		let options = {
-			v : 1,
-			tid : this_.googleAnalyticsTID,
-			cid : this_.googleAnalyticsCID,
-			t : 'pageview',
-			dp : documentPage
-		}
-		$.post(this_.url, options);
-	},
-	send(event, category, action, label, value) {
-		let this_ = this;
-		var options = {
-			v : 1,
-			tid : this_.googleAnalyticsTID,
-			cid : this_.googleAnalyticsCID,
-			t : 'event',
-			ec : category,
-			ea : action || label,
-			el : label, 
-			ev : value
-		};
-		options.el ? '' : delete options.el;
-		options.ev ? '' : delete options.ev;
-		$.post(this_.url, options);
-   }
-};
-
-function trackButton(param1, param2, param3, param4) {
-	__WEBPACK_IMPORTED_MODULE_0__config__["a" /* config */].gaCode ? ga.send('_trackEvent', param1, param2, param3, param4) : '';
-};
-
-const KeenIO = {
-	version : 1,
-	url : 'https://api.keen.io/3.0/projects/5a01b24dc9e77c0001ee57cc/events/@EVENT:@VERSION?api_key=BFE07C37B2DD632B80F25FFA743BDED949A5ACEBF41D1A02E0EDAD677FD727C4F6E7BBD36664FFED2DE21A34FCA250BA541B1736B56A534528003C4CAB113AB50FD2D460492BD62F81C9BBAD6437C42ED41C11F8E67A7D9D675607CAB8E6561C&data=@DATA&r=@RAND',
-	recordEvent(event, data) {
-		data = JSON.stringify(data).replace(/\./g, '_');
-		let img = document.createElement('img');
-		img.src = this.url.replace('@EVENT', event).replace('@VERSION', this.version).replace('@DATA', btoa(data)).replace('@RAND', Math.random());
-		img = null;
-	}
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = KeenIO;
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
@@ -28633,7 +28567,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__background_lib_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__background_lib_filter__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__background_lib_bootstrap_clockpicker_min__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__background_lib_bootstrap_clockpicker_min___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__background_lib_bootstrap_clockpicker_min__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__background_js_ga__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__background_js_conf_special__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__background_js_config__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__background_js_pass_input_component__ = __webpack_require__(3);
@@ -36153,7 +36086,6 @@ Enjoy!
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_base64__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pass_input_component__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__custom__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ga__ = __webpack_require__(4);
 
 
 
@@ -36280,37 +36212,14 @@ bgPage.updateAllData().then(DB => {
 
         if (id == 'enable_context_menu') {
             bgPage.control.setContextMenus();
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings', 'Disable Context Menu', state ? 'toggle on' : 'toggle off');
         } else if (id == 'enable_blocked_words') {
             $('#blocked-words-list').css('display', !state ? 'block' : 'none');   
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Adult Control', 'Word Blocking', state ? 'toggle off' : 'toggle on');
         } else if (id == 'enable_blocked_words_spec') {
             showHideBlockWord_spec();
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Adult Control', 'Adult Blocking', state ? 'toggle off' : 'toggle on');
         } else if (id == 'enable_active_times') {
             showHideActiveTimes();
-        } else if (id == 'stats') {
-            if (getPref(id)) {
-                chrome.runtime.sendMessage({
-                    action: "share_devdata_on"
-                });
-                $("#block_word_obal_spec").show();
-            } else {
-                chrome.runtime.sendMessage({
-                    action: "share_devdata_off"
-                });
-                $("#block_word_obal_spec").hide();
-            }
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings', 'Notifications', state ? 'toggle off' : 'toggle on');
-            showHideBlockWord_spec();
-
-        } else if (id === 'update_notify_active') {
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings', 'Notifications', state ? 'toggle off' : 'toggle on');
-        } else if (id === 'blocked_with_pass') {
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings', 'Password on Blocked Sites', state ? 'toggle off' : 'toggle on');
         } else if (id === 'EnabledBlockSite') {
             $el.parent().find('#enable_label').text(`BlockSite ${!state ? 'Enabled' : 'Disabled'}`);
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings', 'Password on Blocked Sites', state ? 'toggle off' : 'toggle on');
         } 
         saveSettings();
     }
@@ -36353,11 +36262,9 @@ bgPage.updateAllData().then(DB => {
                 setPref('BlockedSites', JSON.stringify(BlockedSites));
             }
             title.innerHTML = 'ALLOW THESE SITES ONLY<div class="content__text content__text_gray">All sites will be blocked except the ones below</div>' ;
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings', 'Whitelist', 'toggle on');
         } else {
             setPref("whitelistCount", 0);
             title.innerHTML = 'BLOCK THESE SITES<div class="content__text content__text_gray">All sites below will be blocked</div>';
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings', 'Whitelist', 'toggle off');
         }
         renderBlockList();
         saveSettings();
@@ -36367,11 +36274,9 @@ bgPage.updateAllData().then(DB => {
         var passwd = document.getElementById('passwd').value;
         if (passwd.length < 5) {
             showMessage(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])("short_passwd"));
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Protection', 'Password Set Up', 'set-error');
         } else {
             var hash = __WEBPACK_IMPORTED_MODULE_2__lib_md5__["a" /* CryptoJS */].MD5(document.getElementById('passwd').value).toString();
             setPref('passwd', hash);
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Protection', 'Password Set Up', 'set-ok');
             $('#remove_password').show();
 
             document.getElementById('passwd').value = "";
@@ -36409,7 +36314,6 @@ bgPage.updateAllData().then(DB => {
 
         if (!pageUrl) return;
         if (redirectUrl && (redirectUrl.includes(pageUrl) || pageUrl.includes(redirectUrl)) || !Object(__WEBPACK_IMPORTED_MODULE_1__conf_special__["b" /* hasSpecialChar */])(pageUrl) || !Object(__WEBPACK_IMPORTED_MODULE_1__conf_special__["d" /* testRegExp */])(pageUrl)) {
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Site List', 'Add Site', 'set-error');
             return showMessage(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('wrong_url'));
         } 
         try {
@@ -36421,14 +36325,12 @@ bgPage.updateAllData().then(DB => {
 
         for (let site of blockedSites) {
             if (site.url === result.url) {
-                Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Site List', 'Add Site', 'set-error');
                 return showMessage(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('page_exist'));
             } 
         } 
 
         blockedSites.push(result);
         setPref('BlockedSites', JSON.stringify(blockedSites));
-        Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Site List', 'Add Site', 'set-ok');
 
         renderDomainSelect();
         saveSettings();
@@ -36458,15 +36360,12 @@ bgPage.updateAllData().then(DB => {
             if (!isInBL) {
                 BlockedSites[i].redirect = val;
                 setPref('BlockedSites', JSON.stringify(BlockedSites));
-                Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Site List', 'Redirect', 'set-ok');
                 renderBlockList();
                 saveSettings();
             } else {
-                Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Site List', 'Redirect', 'set-error');
                 showMessage(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('wrong_url'));
             }
         } else {
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Site List', 'Redirect', 'set-error');
             showMessage(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('wrong_url'));
         }
     }
@@ -36522,13 +36421,11 @@ bgPage.updateAllData().then(DB => {
                 iconMore.click(function() {
                     $(this).parents('.domain').find(".time").hide();
                     $(this).parents('.domain').find(".redirect").toggle();
-                    Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Site List', 'Redirect', 'click');
                 });
 
                 iconTime.click(function() {
                     $(this).parents('.domain').find(".redirect").hide();
                     $(this).parents('.domain').find(".time").toggle();
-                    Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Site List', 'Schedule', 'click');
                 });
 
                 iconDelete.click(function() {
@@ -36808,7 +36705,6 @@ bgPage.updateAllData().then(DB => {
                 item.count = 0;
                 BlockedWords.push(item);
                 setPref('BlockedWords_spec', JSON.stringify(BlockedWords));
-                Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Adult Control', 'Word Blocking', 'set-ok');
                 saveSettings();
             }
         } else {
@@ -36946,11 +36842,9 @@ bgPage.updateAllData().then(DB => {
             times.push(newItem);
             setPref('active_times_list', JSON.stringify(times));
             $('#add_time input[type=text]').val('00:00');
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings', 'Schedule', 'set-ok');
             renderTimes();
             saveSettings();
         } else {
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings', 'Schedule', 'set-error');
             showMessage("Invalid interval");
         }
     }
@@ -37032,10 +36926,8 @@ bgPage.updateAllData().then(DB => {
             $('#list_active_days_checks_domains input').attr('checked', 'checked');
             renderDomainTimes();
             saveSettings();
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Site List', 'Schedule', 'set-ok');
             return true
         } else {
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Site List', 'Schedule', 'set-error');
             showMessage("Invalid interval");
             return false;
         }
@@ -37150,14 +37042,11 @@ bgPage.updateAllData().then(DB => {
                             setPref('blacklist_redirect', val);
                             renderRedirectDefault();
                             saveSettings();
-                            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings','Global Redirect','set-ok');
                         } else {
                             showMessage(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('wrong_url'));
-                            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings','Global Redirect','set-error');
                         }
                     } else {
                         showMessage(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('wrong_url'));
-                        Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings','Global Redirect','set-error');
                     }
                 });
             }
@@ -37218,10 +37107,8 @@ bgPage.updateAllData().then(DB => {
                     setPref('incognito_redirect', val);
                     renderIncognitoRedirect();
                     saveSettings();
-                    Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings','Incognito Redirect','set-ok');
                 } else {
                     showMessage(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('wrong_url'));
-                    Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings','Incognito Redirect','set-error');
                 }
             });
         }
@@ -37266,7 +37153,6 @@ bgPage.updateAllData().then(DB => {
         }
 
         //labels
-        document.getElementById('stats_label').innerHTML = Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('stats');
         document.getElementById('enable_label').innerHTML = Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('enable_label');
         $('#saved_text').html(Object(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* translate */])('saved_text'));
 
@@ -37475,16 +37361,6 @@ bgPage.updateAllData().then(DB => {
             $('#password-set h2').text('Password is set');
         }
 
-        if (!getPref("stats")) {
-            $("#block_word_obal_spec").hide();
-            chrome.runtime.sendMessage({
-                action: "share_devdata_off"
-            });
-        } else {
-            chrome.runtime.sendMessage({
-                action: "share_devdata_on"
-            });
-        }
         // ALL TRANSLATE
         $('[i18n],[i18]').each(function() {
             var id = $(this).attr('i18n') || $(this).attr('i18');
@@ -37500,11 +37376,6 @@ bgPage.updateAllData().then(DB => {
             $('.main>.row').addClass('none');
             $('#' + rel).removeClass('none');
         });
-
-        $('#leftpanel li[rel=blok_general]').click(e => Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Site List', '', 'click'));
-        $('#leftpanel li[rel=blok_words]').click(e => Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Adult Control', '', 'click'));
-        $('#leftpanel li[rel=blok_password]').click(e => Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Protection', '', 'click'));
-        $('#leftpanel li[rel=blok_settings]').click(e => Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Settings', '', 'click'));
 
 
         $('.menuToggle').click(function() {
@@ -37568,7 +37439,6 @@ bgPage.updateAllData().then(DB => {
             setPref('enable_super_safe', false);
             $('#remove_password').css('display', 'none');
             saveSettings();
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Protection', 'Password Set Up', 'remove password');
         });
 
         $('.link_to_ext_list').click(function() {
@@ -37667,23 +37537,6 @@ bgPage.updateAllData().then(DB => {
 
         Object(__WEBPACK_IMPORTED_MODULE_7__custom__["a" /* initNiceChecks */])();
 
-        $('.help-improve').click(e => Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Help Us Improve', '', 'click'));
-
-        $('.open-premium').click(e => Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Premium', '', 'click'));
-
-        [{
-            selector: '.terms',
-            label: 'Terms'
-        }, {
-            selector: '.policy',
-            label: 'Privacy Policy'
-        }, {
-            selector: '#share-facebook-obal',
-            label: 'Like'
-        }, {
-            selector: '#share-twitter-obal',
-            label: 'Tweet'
-        }].forEach(i => $(i.selector).click(e => Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('About', i.label, 'click')));
     }
 
     //$(document).ready(() => {
@@ -37693,10 +37546,6 @@ bgPage.updateAllData().then(DB => {
     // LOAD
     window.addEventListener("load", function() {
         initCheck('EnabledBlockSite');
-        let addonsLink = navigator.userAgent.search('Chrome') > (-1) ? 'https://chrome.google.com/webstore/detail/' + __WEBPACK_IMPORTED_MODULE_0__config__["a" /* config */].webstoreId + '/reviews' : 'https://addons.mozilla.org/en-US/firefox/addon/blocksite/';
-        $('#hlavni .top_webstore').attr('href', addonsLink).click(function() {
-            Object(__WEBPACK_IMPORTED_MODULE_8__ga__["b" /* trackButton */])('Rate Us', '', 'click');
-        });
 
         console.log('Yanik', getPref('password-options'), getPref('passwd'));
 

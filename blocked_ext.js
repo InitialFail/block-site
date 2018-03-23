@@ -10339,14 +10339,10 @@ const config = {
     "extension_id": "35",
     "project_id": "283",
     "config_id": "626f1d33-308e-a876-e56f-5fbbff704d70",
-    "api_url": "https://api.wips.com/",
-    "uninstall_url": "https://blocksite.co/uninstall",
     "webstoreId": "eiimnmioipafcokbfikbljfdeojpcgbh",
     "tweetText": "Stop #procrastination now!",
     "browsingOn": false,
     "browsingLimitUrl": false,
-    "gaCode": "UA-109305899-2",
-    "gaCid": [Math.random(), Math.random(), Math.random()].join('-'),
     "default_locale": "en"
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = config;

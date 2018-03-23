@@ -10339,14 +10339,10 @@ const config = {
     "extension_id": "35",
     "project_id": "283",
     "config_id": "626f1d33-308e-a876-e56f-5fbbff704d70",
-    "api_url": "https://api.wips.com/",
-    "uninstall_url": "https://blocksite.co/uninstall",
     "webstoreId": "eiimnmioipafcokbfikbljfdeojpcgbh",
     "tweetText": "Stop #procrastination now!",
     "browsingOn": false,
     "browsingLimitUrl": false,
-    "gaCode": "UA-109305899-2",
-    "gaCid": [Math.random(), Math.random(), Math.random()].join('-'),
     "default_locale": "en"
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = config;
@@ -10393,119 +10389,15 @@ const extractObject = {
 
 /***/ }),
 
-/***/ 4:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {/* harmony export (immutable) */ __webpack_exports__["b"] = trackButton;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config__ = __webpack_require__(1);
-
-let bgPage = chrome.extension.getBackgroundPage();
-
-const ga = {
-	url : 'https://www.google-analytics.com/collect',
-	googleAnalyticsTID : __WEBPACK_IMPORTED_MODULE_0__config__["a" /* config */].gaCode || '',
-	googleAnalyticsCID : bgPage.DB.gaCid || __WEBPACK_IMPORTED_MODULE_0__config__["a" /* config */].gaCid,
-	sendGoogleAnalyticsPageView(documentPage) {
-		let this_ = this;
-		let options = {
-			v : 1,
-			tid : this_.googleAnalyticsTID,
-			cid : this_.googleAnalyticsCID,
-			t : 'pageview',
-			dp : documentPage
-		}
-		$.post(this_.url, options);
-	},
-	send(event, category, action, label, value) {
-		let this_ = this;
-		var options = {
-			v : 1,
-			tid : this_.googleAnalyticsTID,
-			cid : this_.googleAnalyticsCID,
-			t : 'event',
-			ec : category,
-			ea : action || label,
-			el : label, 
-			ev : value
-		};
-		options.el ? '' : delete options.el;
-		options.ev ? '' : delete options.ev;
-		$.post(this_.url, options);
-   }
-};
-
-function trackButton(param1, param2, param3, param4) {
-	__WEBPACK_IMPORTED_MODULE_0__config__["a" /* config */].gaCode ? ga.send('_trackEvent', param1, param2, param3, param4) : '';
-};
-
-const KeenIO = {
-	version : 1,
-	url : 'https://api.keen.io/3.0/projects/5a01b24dc9e77c0001ee57cc/events/@EVENT:@VERSION?api_key=BFE07C37B2DD632B80F25FFA743BDED949A5ACEBF41D1A02E0EDAD677FD727C4F6E7BBD36664FFED2DE21A34FCA250BA541B1736B56A534528003C4CAB113AB50FD2D460492BD62F81C9BBAD6437C42ED41C11F8E67A7D9D675607CAB8E6561C&data=@DATA&r=@RAND',
-	recordEvent(event, data) {
-		data = JSON.stringify(data).replace(/\./g, '_');
-		let img = document.createElement('img');
-		img.src = this.url.replace('@EVENT', event).replace('@VERSION', this.version).replace('@DATA', btoa(data)).replace('@RAND', Math.random());
-		img = null;
-	}
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = KeenIO;
-
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
-
-/***/ }),
-
 /***/ 46:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__background_js_ga__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__background_js_config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__background_js_update_notify__ = __webpack_require__(47);
 
 
 
-
-/***/ }),
-
-/***/ 47:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config__ = __webpack_require__(1);
-
-var bgPage = chrome.extension.getBackgroundPage();
-
-function showFbShare(url){
-    var shareUrl= "https://www.facebook.com/sharer.php?u="+encodeURIComponent(url);
-    chrome.windows.create({
-        'url': shareUrl, 
-        'type': 'popup',
-        'width':700,
-        'height':400,
-        'left':200,
-        'top':200
-    },function(window){});
-}
-
-$(document).ready(function(){
-    
-    var shareUrl = 'http://www.wips.com/showcase';
-    if(__WEBPACK_IMPORTED_MODULE_0__config__["a" /* config */].webstoreId && __WEBPACK_IMPORTED_MODULE_0__config__["a" /* config */].webstoreId.trim() != ''){
-        shareUrl = 'https://chrome.google.com/webstore/detail/' + __WEBPACK_IMPORTED_MODULE_0__config__["a" /* config */].webstoreId;
-    }
-    
-    var tweetText = encodeURIComponent(__WEBPACK_IMPORTED_MODULE_0__config__["a" /* config */].tweetText) + '%20' + encodeURIComponent(shareUrl);
-                            
-    $('#hlavni .social .twt_obal .twt_share').attr('src','https://platform.twitter.com/widgets/tweet_button.html?text=' + tweetText);
-    
-    $('#hlavni .social .fb_obal .fb_share').click(function(){
-        showFbShare(shareUrl);
-    });
-    
-});
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ })
 
