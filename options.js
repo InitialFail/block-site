@@ -10748,6 +10748,8 @@ bgPage.updateAllData().then(DB => {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {}),
 /* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
