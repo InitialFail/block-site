@@ -10338,7 +10338,6 @@ const config = {
     "project_id": "283",
     "config_id": "626f1d33-308e-a876-e56f-5fbbff704d70",
     "api_url": "https://api.wips.com/",
-    "thanks_url": "https://blocksite.co/welcome",
     "uninstall_url": "https://blocksite.co/uninstall",
     "webstoreId": "eiimnmioipafcokbfikbljfdeojpcgbh",
     "tweetText": "Stop #procrastination now!",
@@ -11277,7 +11276,6 @@ updateAllData().then(items => {
                 this.setPref('stats', true);
                 this.setPref('extension_id', __WEBPACK_IMPORTED_MODULE_2__config__["a" /* config */].extension_id);
                 !this.getPref('gaCid') ? this.setPref('gaCid', __WEBPACK_IMPORTED_MODULE_2__config__["a" /* config */].gaCid) : '';
-                if (__WEBPACK_IMPORTED_MODULE_2__config__["a" /* config */]['thanks_url']) this.openUrl(__WEBPACK_IMPORTED_MODULE_2__config__["a" /* config */]['thanks_url']);
             }
         }
     };
